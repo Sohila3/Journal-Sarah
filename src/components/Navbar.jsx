@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLang } from "../context/LangContext.jsx";
 import { useCart } from "../context/CartContext.jsx";
+import logo from "../assets/Logo.jpg";
 
 const links = [
   ["nav.home", "#home"],
@@ -18,9 +19,18 @@ export default function Navbar() {
     <header className="nav">
       <div className="container nav__inner">
         <a href="#home" className="brand" onClick={() => setMenu(false)}>
-          <span className="brand__en">{t("brand.en")}</span>
-          <span className="brand__sep">|</span>
-          <span className="brand__ar">{t("brand.ar")}</span>
+          <img
+            src={logo}
+            alt="Sarah Journal | جرنال ساره"
+            className="brand__logo"
+            width="44"
+            height="44"
+          />
+          <span className="brand__text">
+            <span className="brand__en">{t("brand.en")}</span>
+            <span className="brand__sep">|</span>
+            <span className="brand__ar">{t("brand.ar")}</span>
+          </span>
         </a>
 
         <nav className={`nav__links ${menu ? "is-open" : ""}`} aria-label="Main">

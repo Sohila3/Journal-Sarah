@@ -9,7 +9,7 @@ const translations = {
     "nav.cart": "Cart",
     "nav.menu": "Menu",
 
-    "hero.eyebrow": "Handmade with love",
+    "hero.eyebrow": "Kindness Pages in our journal",
     "hero.title": "Little Details, Big Feelings",
     "hero.text":
       "Carpet frames, watch accessories and bookmarks, made by hand to bring a quiet, cozy touch to your everyday moments.",
@@ -73,7 +73,7 @@ const translations = {
     "nav.cart": "السلة",
     "nav.menu": "القائمة",
 
-    "hero.eyebrow": "مصنوع يدوياً بحب",
+    "hero.eyebrow": "صفحات من اللطف",
     "hero.title": "تفاصيل صغيرة، مشاعر كبيرة",
     "hero.text":
       "براويز سجاد، إكسسوارات ساعات اليد وبوكمارك، مصنوعة يدوياً لتضيف لمسة دافئة وهادئة للحظاتك اليومية.",
