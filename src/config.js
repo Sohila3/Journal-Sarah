@@ -6,3 +6,6 @@ export const WHATSAPP_NUMBER = "201055292428"; // كود الدولة بدون +
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 export const WHATSAPP_CHANNEL_URL =
   "https://whatsapp.com/channel/0029Vb98yVp9hXF5MQICD62f";
+export const FREE_SHIPPING_MIN = 1000; // شحن مجاني لو الطلب أكثر من
+export const DISCOUNT_MIN = 500; // الخصم لو الطلب أكثر من
+export const DISCOUNT_PERCENT = 10; // نسبة الخصم

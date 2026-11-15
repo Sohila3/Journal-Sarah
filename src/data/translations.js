@@ -10,7 +10,7 @@ const translations = {
     "nav.menu": "Menu",
 
     "hero.eyebrow": "Kindness Pages in our journal",
-    "hero.title": "Little Details, Big Feelings",
+    "hero.title": "Pages of Kindness",
     "hero.text":
       "Carpet frames, watch accessories and bookmarks, made by hand to bring a quiet, cozy touch to your everyday moments.",
     "hero.cta": "Shop Collection",
@@ -62,6 +62,27 @@ const translations = {
     "cart.msg": "Hello Journal Sarah, I'd like to order:",
 
     currency: "EGP",
+    
+    "promo.discount": "{pct}% off orders over {min} {cur}",
+    "promo.free": "Free shipping on orders over {min} {cur}",
+    
+    "nav.workshops": "Workshops",
+    "ws.eyebrow": "Handmade",
+    "ws.title": "Journal Sarah Workshops",
+    "ws.sub": "Pick a workshop, register, and make your own handmade piece.",
+    "ws.pick": "Register for this",
+    "ws.selected": "Selected ✓",
+    "ws.form.title": "Registration details",
+    "ws.f.workshop": "Workshop",
+    "ws.f.name": "Name",
+    "ws.f.phone": "Phone number",
+    "ws.f.people": "Number of people",
+    "ws.f.note": "Notes (optional)",
+    "ws.submit": "Register via WhatsApp",
+    "ws.err.name": "Please enter your name.",
+    "ws.err.phone": "Please enter a valid phone number.",
+    "ws.done": "We opened WhatsApp with a ready message. Send it to confirm your registration.",
+    "ws.msg": "Hello Sarah Journal, I'd like to register for a workshop:",
   },
   ar: {
     "brand.en": "Journal Sarah",
@@ -74,7 +95,7 @@ const translations = {
     "nav.menu": "القائمة",
 
     "hero.eyebrow": "صفحات من اللطف",
-    "hero.title": "تفاصيل صغيرة، مشاعر كبيرة",
+    "hero.title": "صفحات من اللطف ",
     "hero.text":
       "براويز سجاد، إكسسوارات ساعات اليد وبوكمارك، مصنوعة يدوياً لتضيف لمسة دافئة وهادئة للحظاتك اليومية.",
     "hero.cta": "تسوقي المجموعة",
@@ -126,6 +147,27 @@ const translations = {
     "cart.msg": "مرحباً جرنال ساره، أرغب في طلب:",
 
     currency: "ج.م",
+    
+    "promo.discount": "خصم {pct}% على الطلبات أكثر من {min} {cur}",
+    "promo.free": "شحن مجاني للطلبات أكثر من {min} {cur}",
+    
+    "nav.workshops": "الورش",
+    "ws.eyebrow": "هاند ميد",
+    "ws.title": "ورش جرنال ساره",
+    "ws.sub": "اختاري الورشة اللي تعجبك وسجّلي، واصنعي قطعتك الهاند ميد بإيدك.",
+    "ws.pick": "سجّلي في الورشة",
+    "ws.selected": "تم اختيارها ✓",
+    "ws.form.title": "بيانات التسجيل",
+    "ws.f.workshop": "الورشة",
+    "ws.f.name": "الاسم",
+    "ws.f.phone": "رقم الموبايل",
+    "ws.f.people": "عدد الأشخاص",
+    "ws.f.note": "ملاحظات (اختياري)",
+    "ws.submit": "سجّلي عبر واتساب",
+    "ws.err.name": "اكتبي اسمك.",
+    "ws.err.phone": "اكتبي رقم موبايل صحيح.",
+    "ws.done": "فتحنا واتساب برسالة جاهزة. ابعتيها عشان يتأكد تسجيلك.",
+    "ws.msg": "مرحباً جرنال ساره، أرغب في التسجيل في ورشة:",
   },
 };
 

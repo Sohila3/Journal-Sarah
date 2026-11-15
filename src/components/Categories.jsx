@@ -10,7 +10,7 @@ const cats = [
 export default function Categories({ onSelect }) {
   const { t } = useLang();
   return (
-    <section className="section">
+    <section id="shop" className="section">
       <div className="container">
         <header className="section__head">
           <p className="eyebrow">{t("cat.eyebrow")}</p>
@@ -18,7 +18,7 @@ export default function Categories({ onSelect }) {
         </header>
         <div className="cats">
           {cats.map((c) => (
-            <a key={c.id} href="#shop" className="cat" onClick={() => onSelect(c.id)}>
+            <a key={c.id} href="#shop" className="cat" onClick={() => onSelect?.(c.id)}>
               <ArtImage kind={c.id} tone={c.tone} ratio="3 / 4" alt={t(c.key)} />
               <h3>{t(c.key)}</h3>
               <span className="link">

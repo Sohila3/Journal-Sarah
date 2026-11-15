@@ -1,9 +1,9 @@
 // Soft illustrated placeholders. Pass `src` to show a real photo instead.
 const tones = [
-  { bg: "#EFE4D6", frame: "#6B4F3A", paper: "#FAF6F0", a: "#C9A19A", b: "#B08968" },
-  { bg: "#F3E6E1", frame: "#8A6A57", paper: "#FBF7F2", a: "#B98E88", b: "#D9BFA6" },
-  { bg: "#E6D9C6", frame: "#5E4534", paper: "#F8F2E8", a: "#B08968", b: "#C9A19A" },
-  { bg: "#F1EADF", frame: "#7A5C46", paper: "#FAF6F0", a: "#D4B5A8", b: "#9C7A62" },
+  { bg: "#F4D7D1", frame: "#5B182A", paper: "#F5E7CC", a: "#274A36", b: "#D4A034" },
+  { bg: "#F5E7CC", frame: "#5B182A", paper: "#FFF9EF", a: "#F4D7D1", b: "#274A36" },
+  { bg: "#EBD6AE", frame: "#274A36", paper: "#F5E7CC", a: "#5B182A", b: "#D4A034" },
+  { bg: "#5B182A", frame: "#F5E7CC", paper: "#F5E7CC", a: "#D4A034", b: "#F4D7D1" },
 ];
 
 function Frame({ c }) {

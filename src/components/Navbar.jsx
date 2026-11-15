@@ -6,6 +6,7 @@ import logo from "../assets/Logo.jpg";
 const links = [
   ["nav.home", "#home"],
   ["nav.shop", "#shop"],
+  ["nav.workshops", "#workshops"],
   ["nav.about", "#about"],
   ["nav.contact", "#contact"],
 ];

@@ -1,24 +1,24 @@
-import { useState } from "react";
+import PromoBar from "./components/PromoBar.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import Categories from "./components/Categories.jsx";
-import FeaturedProducts from "./components/FeaturedProducts.jsx";
 import About from "./components/About.jsx";
-import Instagram from "./components/Instagram.jsx";
+import Workshops from "./components/Workshops.jsx";
 import Footer from "./components/Footer.jsx";
 import CartDrawer from "./components/CartDrawer.jsx";
 
 export default function App() {
-  const [category, setCategory] = useState("all");
   return (
     <>
-      <Navbar />
+      <div className="topbar">
+        <PromoBar />
+        <Navbar />
+      </div>
       <main>
         <Hero />
-        <Categories onSelect={setCategory} />
-        <FeaturedProducts category={category} setCategory={setCategory} />
+        <Categories />
         <About />
-        <Instagram />
+        <Workshops />
       </main>
       <Footer />
       <CartDrawer />
