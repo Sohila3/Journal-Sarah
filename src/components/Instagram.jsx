@@ -16,6 +16,13 @@ const tiles = [
   { kind: "watch", tone: 0 },
 ];
 
+const altKey = {
+  frames: "cat.frames",
+  watch: "cat.watch",
+  bookmarks: "cat.bookmarks",
+  scene: "brand.en",
+};
+
 export default function Instagram() {
   const { t } = useLang();
   return (
@@ -34,7 +41,7 @@ export default function Instagram() {
         <div className="ig">
           {tiles.map((tile, i) => (
             <a key={i} href={INSTAGRAM_URL} target="_blank" rel="noreferrer" aria-label="Instagram">
-              <ArtImage kind={tile.kind} tone={tile.tone} ratio="1 / 1" />
+              <ArtImage kind={tile.kind} tone={tile.tone} ratio="1 / 1" alt={t(altKey[tile.kind])} />
             </a>
           ))}
         </div>
