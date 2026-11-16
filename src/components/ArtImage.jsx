@@ -66,6 +66,30 @@ function Bookmark({ c }) {
   );
 }
 
+function Sticker({ c }) {
+  return (
+    <g>
+      <rect x="80" y="90" width="240" height="300" rx="24" fill={c.paper} stroke={c.frame} strokeOpacity=".35" />
+      <circle cx="150" cy="170" r="42" fill={c.a} />
+      <circle cx="150" cy="170" r="16" fill={c.paper} />
+      <polygon
+        points="255,125 265,151.3 293,152.6 271.2,170.3 278.5,197.4 255,182 231.5,197.4 238.8,170.3 217,152.6 245,151.3"
+        fill={c.b}
+      />
+      <path
+        d="M150 330 C108 300 108 262 135 258 C148 257 150 268 150 272 C150 268 152 257 165 258 C192 262 192 300 150 330Z"
+        fill={c.b}
+      />
+      {Array.from({ length: 6 }).map((_, i) => {
+        const a = (i / 6) * Math.PI * 2;
+        return <circle key={i} cx={255 + Math.cos(a) * 20} cy={305 + Math.sin(a) * 20} r="12" fill={c.a} />;
+      })}
+      <circle cx="255" cy="305" r="9" fill={c.paper} />
+      <path d="M320 340 Q300 345 296 390 L320 390Z" fill={c.frame} fillOpacity=".18" />
+    </g>
+  );
+}
+
 function Scene({ c }) {
   return (
     <g>
@@ -76,7 +100,7 @@ function Scene({ c }) {
   );
 }
 
-const draw = { frames: Frame, watch: Watch, bookmarks: Bookmark, scene: Scene };
+const draw = { frames: Frame, watch: Watch, bookmarks: Bookmark, stickers: Sticker, scene: Scene };
 
 export default function ArtImage({ kind = "frames", tone = 0, src, alt = "", ratio = "4 / 5", className = "" }) {
   const c = tones[tone % tones.length];

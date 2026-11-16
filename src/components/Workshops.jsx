@@ -58,91 +58,101 @@ export default function Workshops() {
           <p className="ws-sub">{t("ws.sub")}</p>
         </header>
 
-        <div className="ws-grid">
-          {workshops.map((w) => {
-            const isSel = selected === w.id;
-            const date = w.date?.[lang];
-            const desc = w.desc?.[lang];
-            return (
-              <article key={w.id} className={`ws ${isSel ? "is-selected" : ""}`}>
-                <ArtImage
-                  kind={w.kind}
-                  tone={w.tone}
-                  src={w.image || undefined}
-                  alt={w.title[lang]}
-                  ratio="4 / 3"
-                />
-                <h3>{w.title[lang]}</h3>
-                {desc && <p className="ws__desc">{desc}</p>}
-                {(date || w.price != null) && (
-                  <ul className="ws__meta">
-                    {date && <li>{date}</li>}
-                    {w.price != null && (
-                      <li>
-                        {w.price} {t("currency")}
-                      </li>
+        <div className="ws-layout">
+          <div className="ws-list">
+            {workshops.map((w) => {
+              const isSel = selected === w.id;
+              const date = w.date?.[lang];
+              const desc = w.desc?.[lang];
+              return (
+                <article key={w.id} className={isSel ? "ws is-selected" : "ws"}>
+                  <ArtImage
+                    kind={w.kind}
+                    tone={w.tone}
+                    src={w.image || undefined}
+                    alt={w.title[lang]}
+                    ratio="4 / 3"
+                  />
+                  <div className="ws__body">
+                    <h3>{w.title[lang]}</h3>
+                    {desc && <p className="ws__desc">{desc}</p>}
+                    {(date || w.price != null) && (
+                      <ul className="ws__meta">
+                        {date && <li>{date}</li>}
+                        {w.price != null && (
+                          <li>
+                            {w.price} {t("currency")}
+                          </li>
+                        )}
+                      </ul>
                     )}
-                  </ul>
-                )}
-                <button type="button" className="btn btn--ghost" onClick={() => choose(w.id)}>
-                  {isSel ? t("ws.selected") : t("ws.pick")}
-                </button>
-              </article>
-            );
-          })}
-        </div>
-
-        <form ref={formRef} className="ws-form" onSubmit={submit} noValidate>
-          <span className="tape tape--a" aria-hidden="true" />
-          <span className="tape tape--b" aria-hidden="true" />
-          <h3>{t("ws.form.title")}</h3>
-
-          <label>
-            {t("ws.f.workshop")}
-            <select value={selected} onChange={(e) => { setSelected(e.target.value); setSent(false); }}>
-              {workshops.map((w) => (
-                <option key={w.id} value={w.id}>
-                  {w.title[lang]}
-                </option>
-              ))}
-            </select>
-          </label>
-
-          <label>
-            {t("ws.f.name")}
-            <input type="text" value={form.name} onChange={set("name")} autoComplete="name" />
-          </label>
-
-          <div className="ws-form__row">
-            <label>
-              {t("ws.f.phone")}
-              <input
-                type="tel"
-                inputMode="tel"
-                dir="ltr"
-                value={form.phone}
-                onChange={set("phone")}
-                autoComplete="tel"
-              />
-            </label>
-            <label>
-              {t("ws.f.people")}
-              <input type="number" min="1" value={form.people} onChange={set("people")} />
-            </label>
+                    <button type="button" className="btn btn--ghost" onClick={() => choose(w.id)}>
+                      {isSel ? t("ws.selected") : t("ws.pick")}
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
           </div>
 
-          <label>
-            {t("ws.f.note")}
-            <textarea rows="3" value={form.note} onChange={set("note")} />
-          </label>
+          <form ref={formRef} className="ws-form" onSubmit={submit} noValidate>
+            <span className="tape tape--a" aria-hidden="true" />
+            <span className="tape tape--b" aria-hidden="true" />
+            <h3>{t("ws.form.title")}</h3>
 
-          {error && <p className="ws-error" role="alert">{error}</p>}
-          {sent && <p className="ws-ok" role="status">{t("ws.done")}</p>}
+            <label>
+              {t("ws.f.workshop")}
+              <select
+                value={selected}
+                onChange={(e) => {
+                  setSelected(e.target.value);
+                  setSent(false);
+                }}
+              >
+                {workshops.map((w) => (
+                  <option key={w.id} value={w.id}>
+                    {w.title[lang]}
+                  </option>
+                ))}
+              </select>
+            </label>
 
-          <button type="submit" className="btn btn--block">
-            {t("ws.submit")}
-          </button>
-        </form>
+            <label>
+              {t("ws.f.name")}
+              <input type="text" value={form.name} onChange={set("name")} autoComplete="name" />
+            </label>
+
+            <div className="ws-form__row">
+              <label>
+                {t("ws.f.phone")}
+                <input
+                  type="tel"
+                  inputMode="tel"
+                  dir="ltr"
+                  value={form.phone}
+                  onChange={set("phone")}
+                  autoComplete="tel"
+                />
+              </label>
+              <label>
+                {t("ws.f.people")}
+                <input type="number" min="1" value={form.people} onChange={set("people")} />
+              </label>
+            </div>
+
+            <label>
+              {t("ws.f.note")}
+              <textarea rows="3" value={form.note} onChange={set("note")} />
+            </label>
+
+            {error && <p className="ws-error" role="alert">{error}</p>}
+            {sent && <p className="ws-ok" role="status">{t("ws.done")}</p>}
+
+            <button type="submit" className="btn btn--block">
+              {t("ws.submit")}
+            </button>
+          </form>
+        </div>
 
         <Social />
 

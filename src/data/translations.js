@@ -83,6 +83,8 @@ const translations = {
     "ws.err.phone": "Please enter a valid phone number.",
     "ws.done": "We opened WhatsApp with a ready message. Send it to confirm your registration.",
     "ws.msg": "Hello Sarah Journal, I'd like to register for a workshop:",
+
+    "cat.stickers": "Stickers",
   },
   ar: {
     "brand.en": "Journal Sarah",
@@ -168,6 +170,8 @@ const translations = {
     "ws.err.phone": "اكتبي رقم موبايل صحيح.",
     "ws.done": "فتحنا واتساب برسالة جاهزة. ابعتيها عشان يتأكد تسجيلك.",
     "ws.msg": "مرحباً جرنال ساره، أرغب في التسجيل في ورشة:",
+
+    "cat.stickers": "استيكرز",
   },
 };
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useLang } from "../context/LangContext.jsx";
 import {
   INSTAGRAM_URL,
@@ -25,9 +26,10 @@ export default function Footer() {
 
         <div>
           <h4>{t("footer.links")}</h4>
-          <a href="#home">{t("nav.home")}</a>
-          <a href="#shop">{t("nav.shop")}</a>
-          <a href="#about">{t("nav.about")}</a>
+          <Link to="/">{t("nav.home")}</Link>
+          <Link to="/#shop">{t("nav.shop")}</Link>
+          <Link to="/#workshops">{t("nav.workshops")}</Link>
+          <Link to="/#about">{t("nav.about")}</Link>
         </div>
 
         <div>

@@ -444,3 +444,199 @@ html { scroll-padding-top: 120px; }
   .ws-form { padding-inline: 20px; margin-bottom: 48px; }
   .ws-form__row { grid-template-columns: 1fr; }
 }
+
+/* ---------- Showcase: كروت الأقسام بتتحرك باستمرار ---------- */
+.showcase { --speed: 90s; overflow: hidden; padding-block: 8px; }
+.showcase__track {
+  display: flex;
+  width: max-content;
+  animation: showcase var(--speed) linear infinite;
+  will-change: transform;
+}
+.showcase__track.is-rtl { animation-direction: reverse; }
+.showcase__group { display: flex; flex-shrink: 0; gap: 28px; padding-right: 28px; }
+.showcase .cat { flex: 0 0 clamp(220px, 24vw, 300px); }
+@keyframes showcase {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase { overflow-x: auto; }
+  .showcase__track { animation: none; }
+  .showcase__group[aria-hidden],
+  .showcase .cat[aria-hidden] { display: none; }
+}
+
+/* ---------- Workshops layout: الكروت تحت بعض + الفورم جنبها ---------- */
+.ws-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 64px;
+}
+.ws-list { display: grid; gap: 20px; }
+
+.ws {
+  flex-direction: row;
+  align-items: stretch;
+  gap: 18px;
+  padding: 14px;
+  text-align: start;
+  background: var(--paper);
+  border: 3px solid transparent;
+}
+.ws.is-selected { border-color: var(--yellow); }
+.ws .art { width: 38%; flex-shrink: 0; border: 0; align-self: flex-start; }
+.ws.is-selected .art { outline: none; }
+.ws__body { display: flex; flex-direction: column; align-items: flex-start; flex: 1; min-width: 0; }
+.ws h3 { margin: 0 0 4px; }
+.ws__meta { justify-content: flex-start; margin-bottom: 12px; }
+.ws .btn { margin-top: auto; }
+
+.ws-form { max-width: none; margin: 0; }
+
+@media (max-width: 900px) {
+  .ws-layout { grid-template-columns: 1fr; margin-bottom: 48px; }
+}
+@media (max-width: 480px) {
+  .ws { flex-direction: column; }
+  .ws .art { width: 100%; }
+}
+
+/* ---------- Workshops: نص للورش ونص للفورم ---------- */
+#workshops .ws-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+  margin-bottom: 56px;
+}
+
+/* الكروت التلاتة بتتقسم على نفس ارتفاع الفورم */
+#workshops .ws-list {
+  display: grid;
+  grid-auto-rows: 1fr;
+  gap: 16px;
+}
+#workshops .ws {
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  text-align: start;
+  background: var(--paper);
+  border: 3px solid transparent;
+}
+#workshops .ws.is-selected { border-color: var(--yellow); }
+#workshops .ws .art {
+  width: 34%;
+  flex-shrink: 0;
+  border: 0;
+  aspect-ratio: 1 / 1 !important; /* ArtImage بيحط النسبة inline، فلازم !important */
+}
+#workshops .ws.is-selected .art { outline: none; }
+#workshops .ws__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+}
+#workshops .ws h3 { font-size: 1.15rem; margin: 0 0 4px; }
+#workshops .ws__desc { font-size: 0.92rem; margin-bottom: 6px; }
+#workshops .ws__meta { justify-content: flex-start; margin-bottom: 8px; }
+#workshops .ws .btn { margin-top: 6px; }
+
+/* الفورم */
+#workshops .ws-form { max-width: none; margin: 0; padding: 44px 28px 28px; align-content: start; }
+
+@media (max-width: 760px) {
+  #workshops .ws-layout { grid-template-columns: 1fr; margin-bottom: 48px; }
+  #workshops .ws-list { grid-auto-rows: auto; }
+}
+
+/* ---------- Category page ---------- */
+.catpage__head {
+  position: relative;
+  overflow: hidden;
+  background: var(--burgundy);
+  color: var(--beige);
+  padding: 56px 0 52px;
+}
+.catpage__head::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline-end: 0;
+  width: min(26vw, 260px);
+  height: min(14vw, 140px);
+  background: var(--green);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 86% 78%, 72% 92%, 58% 64%, 44% 80%, 30% 50%, 14% 58%, 0 30%);
+}
+[dir="rtl"] .catpage__head::before { transform: scaleX(-1); }
+.catpage__head .container { position: relative; }
+.catpage__head h1 { color: var(--beige); }
+.catpage__head .eyebrow { background: var(--yellow); color: var(--burgundy); }
+
+.back { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 18px; color: var(--blush); font-weight: 500; }
+.back:hover { color: var(--yellow); }
+[dir="rtl"] .back__arrow { display: inline-block; transform: scaleX(-1); }
+
+.catpage__body { min-height: 50vh; }
+.catempty { text-align: center; max-width: 46ch; margin: 0 auto; }
+.catempty p { margin-bottom: 20px; }
+
+/* أزرار التنقل بين الأقسام */
+.catchips {
+  display: flex;
+  gap: 12px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 48px;
+  padding: 8px 6px 14px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+.catchips::-webkit-scrollbar { display: none; }
+
+.chip {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 22px 6px 6px;
+  background: var(--paper);
+  border: 2px solid var(--burgundy);
+  border-radius: 999px;
+  font-weight: 500;
+  scroll-snap-align: center;
+  transition: transform 0.25s, background 0.25s, color 0.25s, border-color 0.25s;
+}
+[dir="rtl"] .chip { padding: 6px 6px 6px 22px; }
+.chip:hover { transform: translateY(-3px); background: var(--yellow); border-color: var(--yellow); }
+
+.chip__thumb {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--burgundy);
+  background: var(--beige);
+}
+.chip__thumb .art { height: 100%; }
+.chip__name { white-space: nowrap; }
+
+/* القسم اللي إنتِ فيه */
+.chip[aria-current="page"] { background: var(--burgundy); border-color: var(--burgundy); color: var(--beige); }
+.chip[aria-current="page"]:hover { transform: none; background: var(--burgundy); }
+.chip[aria-current="page"] .chip__thumb { border-color: var(--yellow); }
+.chip[aria-current="page"] .chip__name { border-bottom: 3px solid var(--yellow); }
+
+@media (prefers-reduced-motion: reduce) {
+  .chip:hover { transform: none; }
+}

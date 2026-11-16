@@ -12,15 +12,11 @@ export function LangProvider({ children }) {
     }
   });
 
-  // Switch direction, language and SEO text for the entire document
+  // Switch direction + language for the entire document
+  // (العنوان والوصف بقوا بيتحدّثوا من كل صفحة عن طريق usePageSeo)
   useEffect(() => {
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-
-    document.title = translations[lang]["seo.title"];
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", translations[lang]["seo.description"]);
-
     try {
       localStorage.setItem("sj-lang", lang);
     } catch {}
