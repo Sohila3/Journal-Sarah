@@ -16,10 +16,10 @@ export default function Hero() {
 
       <div className="container hero__grid">
         <div className="hero__text">
-          <Ransom text="Journal Sarah" />
-
+          {/* الـ H1 فيه اسم البراند + الشعار، عشان الهوية تبقى واضحة */}
           <h1 className="reveal" style={{ "--d": "0.5s" }}>
-            {t("hero.title")}
+            <Ransom as="span" text={t("brand.en")} />
+            <span className="hero__tag">{t("hero.title")}</span>
           </h1>
 
           <p className="lead reveal" style={{ "--d": "0.7s" }}>
@@ -41,9 +41,9 @@ export default function Hero() {
             src={HERO_SRC || undefined}
             ratio="4 / 5"
             className="hero__img"
-            alt="Sarah Journal elegant accessories and lifestyle collection"
+            alt="Sarah Journal carpet frames, watch accessories, bookmarks and stickers"
           />
-          <figcaption className="note">{t("Just For You")}</figcaption>
+          <figcaption className="note">{t("hero.note")}</figcaption>
 
           <svg className="doodle doodle--heart" viewBox="0 0 40 40" aria-hidden="true">
             <path

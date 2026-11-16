@@ -1,6 +1,7 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import { useLang } from "../context/LangContext.jsx";
 import usePageSeo from "../hooks/usePageSeo.js";
+import { HOME_TITLE, HOME_DESCRIPTION, categoryTitle, categoryDescription } from "../data/seo.js";
 import categories from "../data/categories.js";
 import products from "../data/products.js";
 import ProductCard from "../components/ProductCard.jsx";
@@ -9,13 +10,13 @@ import { WHATSAPP_URL } from "../config.js";
 
 export default function CategoryPage() {
   const { id } = useParams();
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const cat = categories.find((c) => c.id === id);
   const name = cat ? t(cat.key) : "";
 
   usePageSeo({
-    title: cat ? `${name} | ${t("brand.en")} | ${t("brand.ar")}` : t("seo.title"),
-    description: cat ? t("cat.seo").replace("{name}", name) : t("seo.description"),
+    title: cat ? categoryTitle(name) : HOME_TITLE,
+    description: cat ? categoryDescription(name, lang) : HOME_DESCRIPTION[lang] ?? HOME_DESCRIPTION.en,
     path: cat ? `/category/${cat.id}` : "/",
   });
 

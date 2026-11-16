@@ -660,3 +660,20 @@ html { scroll-padding-top: 120px; }
 
 /* شبكة أمان: لو أي عنصر زاد عن الشاشة مايعملش scroll جانبي */
 html, body { overflow-x: clip; }
+
+
+/* ---------- SEO fix: brand inside H1 ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.ransom__tile::before { content: attr(data-ch); }
+.hero h1 .ransom { margin-bottom: 18px; }
+.hero__tag { display: block; }

@@ -13,7 +13,7 @@ export function LangProvider({ children }) {
   });
 
   // Switch direction + language for the entire document
-  // (العنوان والوصف بقوا بيتحدّثوا من كل صفحة عن طريق usePageSeo)
+  // (العنوان والوصف بيتحدّثوا من كل صفحة عن طريق usePageSeo)
   useEffect(() => {
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
@@ -22,7 +22,17 @@ export function LangProvider({ children }) {
     } catch {}
   }, [lang]);
 
-  const t = useCallback((key) => translations[lang][key] ?? key, [lang]);
+  // لو المفتاح ناقص في اللغة الحالية بنجيبه من الإنجليزي، ولو ناقص فيها كمان بنعرضه كما هو
+  const t = useCallback(
+    (key) => {
+      const value = translations[lang]?.[key] ?? translations.en?.[key];
+      if (value === undefined && import.meta.env.DEV) {
+        console.warn(`[i18n] Missing translation key: "${key}"`);
+      }
+      return value ?? key;
+    },
+    [lang]
+  );
   const toggle = () => setLang((l) => (l === "ar" ? "en" : "ar"));
 
   return (
